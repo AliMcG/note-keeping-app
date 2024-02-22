@@ -16,14 +16,15 @@ datasource db {
 
 model Post {
     id        String   @id @default(auto()) @map("_id") @db.ObjectId
-    name      String
+    title      String
+    description String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
     createdBy   User   @relation(fields: [createdById], references: [id])
-    createdById String
+    createdById String @db.ObjectId
 
-    @@index([name])
+    @@index([title])
 }
 
 // Necessary for Next auth
