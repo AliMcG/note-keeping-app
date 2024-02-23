@@ -4,16 +4,17 @@ export default function AuthShowcase() {
   const { data: sessionData } = useSession();
 
   return (
-    <div>
+    <div className="flex justify-evenly items-center gap-4 font-mono">
+      
+      <p className="text-center text-2xl">
+        {sessionData && <span>{sessionData.user?.name}</span>}
+      </p>
       <button
-        className="rounded-full bg-white px-10 py-3 font-semibold text-slate-800 no-underline transition hover:bg-white/20"
+        className="rounded-full bg-white px-5 py-2 font-semibold no-underline transition hover:bg-white/60 items-center"
         onClick={sessionData ? () => void signOut() : () => void signIn()}
       >
         {sessionData ? "Sign out" : "Sign in"}
       </button>
-      <p className="text-center text-2xl text-white">
-        {sessionData && <span>{sessionData.user?.name}</span>}
-      </p>
     </div>
   );
 }
