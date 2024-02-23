@@ -13,8 +13,8 @@ const TestCreateArea = () => {
     description: "",
   };
   const [note, setNote] = useState(initialValue);
-  const { refetch } = api.post.getLatest.useQuery();
-  const { mutate } = api.post.create.useMutation({
+  const { refetch } = api.notes.getLatest.useQuery();
+  const { mutate } = api.notes.create.useMutation({
     onSuccess: (response) => {
       console.log("succesful mutation with", response);
       void refetch();
@@ -41,18 +41,21 @@ const TestCreateArea = () => {
   function handleClick(event: React.SyntheticEvent) {
     event.preventDefault();
     mutate(note);
+    setNote(initialValue)
   }
 
   return (
-    <form className="float-lef relative mx-4 my-4 w-60 rounded-lg bg-white p-4 shadow-md">
+    <form className="float-left relative mx-4 my-4 w-[480px] rounded-lg bg-white p-4 shadow-2xl flex flex-col font-mono">
       <input
         name="title"
+        className="outline-none text-lg"
         placeholder="Title"
         value={note.title}
         onChange={handleChange}
       />
       <textarea
         name="description"
+        className="outline-none text-lg resize-none"
         placeholder="Take a note..."
         onClick={renderInput}
         onChange={handleChange}
@@ -61,7 +64,7 @@ const TestCreateArea = () => {
       />
       <Zoom
         in={showInput}
-        className="absolute bottom-4 right-4 h-8 w-8 cursor-pointer rounded-full border-none text-gray-700 outline-none"
+        className="absolute -bottom-3 bg-[#75988c] right-4 h-10 w-10 cursor-pointer rounded-full border-none text-gray-900 outline-none"
       >
         <Fab onClick={handleClick}>
           <AddCircleIcon />

@@ -1,19 +1,27 @@
 import Head from "next/head";
-import AuthenticationButton from "~/components/AuthenticationButton";
 import CreateArea from "~/components/CreateArea";
 import Footer from "~/components/Footer";
+import Header from "~/components/Header";
 import Note from "~/components/note";
-
+import { useSession } from "next-auth/react";
 import { api } from "~/utils/api";
 
 export default function Home() {
-  const { data, refetch } = api.post.getLatest.useQuery();
-  const { mutate } = api.post.delete.useMutation({
+  const { data: sessionData } = useSession();
+  const { data, refetch } = api.notes.getLatest.useQuery();
+  const { mutate } = api.notes.delete.useMutation({
     onSuccess: () => {
       void refetch();
     },
   });
-
+  const welcomeNote = {
+    id: "string;",
+    title: "Welcome Note",
+    description: "Sign in to add your own notes",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    createdById: "Dev Team",
+  };
   function deleteFunction(id: string) {
     mutate({ id: id });
   }
@@ -25,21 +33,25 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className=" flex min-h-screen flex-col items-center justify-center"
+        className="flex min-h-screen flex-col items-center text-slate-800 "
         style={{
           backgroundImage:
             "url('https://www.transparenttextures.com/patterns/carbon-fibre-big.png')",
           backgroundColor: " #0061b5",
         }}
       >
-        <div className="flex flex-col items-center gap-2">
-          <AuthenticationButton />
-        </div>
-        <CreateArea />
-        <div>
-          {data?.map((note, index) => (
-            <Note key={index} note={note} deleteFunction={deleteFunction} />
-          ))}
+        <Header />
+        <div className="mt-20 flex flex-col items-center">
+          <CreateArea />
+          {sessionData ? (
+            <div className="flex flex-row">
+              {data?.map((note, index) => (
+                <Note key={index} note={note} deleteFunction={deleteFunction} />
+              ))}
+            </div>
+          ) : (
+            <Note note={welcomeNote} />
+          )}
         </div>
 
         <Footer />
