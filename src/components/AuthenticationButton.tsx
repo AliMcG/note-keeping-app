@@ -11,7 +11,7 @@ export default function AuthShowcase() {
       </p>
       <button
         className="rounded-full bg-white px-4 py-1.5 font-semibold no-underline transition hover:bg-white/60 items-center"
-        onClick={sessionData ? () => void signOut() : () => void signIn()}
+        onClick={sessionData ? () => void signOut() : () => void signIn("google")}
       >
         {sessionData ? "Sign out" : "Sign in"}
       </button>

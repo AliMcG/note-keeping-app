@@ -18,14 +18,12 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <main className={`${montserrat.variable}`}>
-    <SessionProvider session={session}>
-      <Layout>
-      <Component {...pageProps} />
-      </Layout>
-     
-    </SessionProvider>
+      <SessionProvider session={session}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </SessionProvider>
     </main>
-
   );
 };
 
