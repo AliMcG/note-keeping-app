@@ -1,7 +1,5 @@
 import Head from "next/head";
 import CreateArea from "~/components/CreateArea";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
 import Note from "~/components/note";
 import { useSession } from "next-auth/react";
 import { api } from "~/utils/api";
