@@ -18,9 +18,6 @@ export default function Home() {
     id: "string;",
     title: "Welcome Note",
     description: "Sign in to add your own notes",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    createdById: "Dev Team",
   };
   function deleteFunction(id: string) {
     mutate({ id: id });
@@ -33,18 +30,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className="flex min-h-screen flex-col items-center text-slate-800 "
+        className="flex flex-1 min-h-screen flex-col items-center text-slate-800 "
         style={{
           backgroundImage:
             "url('https://www.transparenttextures.com/patterns/carbon-fibre-big.png')",
           backgroundColor: " #0061b5",
         }}
       >
-        <Header />
-        <div className="mt-20 flex flex-col items-center">
+        <div className="mt-40 md:mt-20 flex flex-col items-center">
           <CreateArea />
           {sessionData ? (
-            <div className="flex flex-row">
+            <div className="flex flex-col md:flex-row ">
               {data?.map((note, index) => (
                 <Note key={index} note={note} deleteFunction={deleteFunction} />
               ))}
@@ -53,8 +49,6 @@ export default function Home() {
             <Note note={welcomeNote} />
           )}
         </div>
-
-        <Footer />
       </main>
     </>
   );

@@ -45,7 +45,7 @@ const TestCreateArea = () => {
   }
 
   return (
-    <form className="float-left relative mx-4 my-4 w-[480px] rounded-lg bg-white p-4 shadow-2xl flex flex-col font-mono">
+    <form className="float-left relative mx-4 my-4 w-3/4 rounded-lg bg-white p-4 shadow-2xl flex flex-col font-monts">
       <input
         name="title"
         className="outline-none text-lg"

@@ -14,7 +14,7 @@ export type NoteProps = {
 export default function Note({ note, deleteFunction }: NoteProps) {
   const { title, description, id } = note;
   return (
-    <div className="relative float-left mx-4 my-4 w-60 h-40 rounded-lg bg-white p-4 shadow-2xl font-mono">
+    <div className="relative float-left mx-4 my-4 w-60 h-40 rounded-lg bg-white p-4 shadow-2xl font-monts">
       <h1 className="text-lg font-semibold text-slate-950">{title}</h1>
       <p>{description}</p>
       {deleteFunction && <button
