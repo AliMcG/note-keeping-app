@@ -28,21 +28,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className="flex flex-1 min-h-screen flex-col items-center text-slate-800 "
+        className="flex min-h-screen flex-1 flex-col items-center text-slate-800"
         style={{
           backgroundImage:
             "url('https://www.transparenttextures.com/patterns/carbon-fibre-big.png')",
-          backgroundColor: " #0061b5",
+          backgroundColor: "#0061b5",
         }}
       >
-        <div className="mt-40 md:mt-20 flex flex-col items-center">
-          <CreateArea />
+        <div className="mt-40 flex flex-col items-center md:mt-20">
           {sessionData ? (
-            <div className="flex flex-col md:flex-row ">
-              {data?.map((note, index) => (
-                <Note key={index} note={note} deleteFunction={deleteFunction} />
-              ))}
-            </div>
+            <>
+              <CreateArea />
+              <div className="flex flex-col md:flex-row">
+                {data?.map((note, index) => (
+                  <Note
+                    key={index}
+                    note={note}
+                    deleteFunction={deleteFunction}
+                  />
+                ))}
+              </div>
+            </>
           ) : (
             <Note note={welcomeNote} />
           )}
