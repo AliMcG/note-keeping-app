@@ -4,7 +4,7 @@ export default function AuthShowcase() {
   const { data: sessionData } = useSession();
 
   return (
-    <div className="flex justify-evenly items-center text-sm md:text-2xl gap-1 md:gap-4 font-monts flex-col-reverse md:flex-row">
+    <div className="flex justify-evenly items-center text-sm md:text-lg gap-1 md:gap-4 font-monts flex-col-reverse md:flex-row">
       <p className="text-center">
         {sessionData && <span>{sessionData.user?.name}</span>}
       </p>
