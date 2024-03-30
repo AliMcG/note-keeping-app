@@ -41,21 +41,21 @@ const TestCreateArea = () => {
   function handleClick(event: React.SyntheticEvent) {
     event.preventDefault();
     mutate(note);
-    setNote(initialValue)
+    setNote(initialValue);
   }
 
   return (
-    <form className="float-left relative mx-4 my-4 w-3/4 rounded-lg bg-white p-4 shadow-2xl flex flex-col font-monts">
+    <form className="relative float-left mx-4 my-4 flex w-3/4 flex-col rounded-lg bg-white p-4 font-monts shadow-2xl">
       <input
         name="title"
-        className="outline-none text-lg"
+        className="text-lg outline-none"
         placeholder="Title"
         value={note.title}
         onChange={handleChange}
       />
       <textarea
         name="description"
-        className="outline-none text-lg resize-none"
+        className="resize-none text-lg outline-none"
         placeholder="Take a note..."
         onClick={renderInput}
         onChange={handleChange}
@@ -64,7 +64,7 @@ const TestCreateArea = () => {
       />
       <Zoom
         in={showInput}
-        className="absolute -bottom-3 bg-[#75988c] right-4 h-10 w-10 cursor-pointer rounded-full border-none text-gray-900 outline-none"
+        className="absolute -bottom-3 right-4 z-10 h-10 w-10 cursor-pointer rounded-full border-none bg-[#75988c] text-gray-900 outline-none"
       >
         <Fab onClick={handleClick}>
           <AddCircleIcon />
