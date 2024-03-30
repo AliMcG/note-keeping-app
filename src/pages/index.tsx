@@ -27,33 +27,20 @@ export default function Home() {
         <meta name="description" content="Best note keeping App in world!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main
-        className="flex min-h-screen flex-1 flex-col items-center text-slate-800"
-        style={{
-          backgroundImage:
-            "url('https://www.transparenttextures.com/patterns/carbon-fibre-big.png')",
-          backgroundColor: "#0061b5",
-        }}
-      >
-        <div className="mt-20 flex flex-col items-center">
-          {sessionData ? (
-            <>
-              <CreateArea />
-              <div className="flex flex-col md:flex-row">
-                {data?.map((note, index) => (
-                  <Note
-                    key={index}
-                    note={note}
-                    deleteFunction={deleteFunction}
-                  />
-                ))}
-              </div>
-            </>
-          ) : (
-            <Note note={welcomeNote} />
-          )}
-        </div>
-      </main>
+      <div className="mt-20 flex flex-col items-center">
+        {sessionData ? (
+          <>
+            <CreateArea />
+            <div className="flex flex-col md:flex-row">
+              {data?.map((note, index) => (
+                <Note key={index} note={note} deleteFunction={deleteFunction} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <Note note={welcomeNote} />
+        )}
+      </div>
     </>
   );
 }
