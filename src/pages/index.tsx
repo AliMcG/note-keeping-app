@@ -35,7 +35,7 @@ export default function Home() {
           backgroundColor: "#0061b5",
         }}
       >
-        <div className="mt-40 flex flex-col items-center md:mt-20">
+        <div className="mt-20 flex flex-col items-center">
           {sessionData ? (
             <>
               <CreateArea />
