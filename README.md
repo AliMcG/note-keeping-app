@@ -1,6 +1,13 @@
-# Create T3 App
+# Note keeping app 
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A simple project to practice using Prisma ORM with Mongodb.
+
+## Component library 
+
+A place to test out the reusable components from rawsome-compontes.
+
+## Tailwind classes 
+
 
 ## What's next? How do I make an app with this?
 
