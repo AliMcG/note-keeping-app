@@ -1,5 +1,6 @@
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Button } from "rawsome-components";
 
 export type Note = {
   id: string;
@@ -14,17 +15,20 @@ export type NoteProps = {
 export default function Note({ note, deleteFunction }: NoteProps) {
   const { title, description, id } = note;
   return (
-    <div className="relative float-left mx-4 my-4 w-60 h-40 rounded-lg bg-white p-4 shadow-2xl font-monts">
-      <h1 className="text-lg font-semibold text-primary-text">{title}</h1>
+    <div className="relative mx-4 my-4 h-40 w-60 rounded-lg bg-white p-4 font-monts shadow-2xl">
+      <h1 className="text-primary-text text-lg font-semibold">{title}</h1>
       <p>{description}</p>
-      {deleteFunction && <button
-        className="absolute bottom-1 right-1 bg-slate-200 h-9 w-14 cursor-pointer rounded-lg border-none bg-transparent text-gray-600 outline-none hover:bg-gray-300"
-        onClick={() => {
-          deleteFunction?.(id);
-        }}
-      >
-        <DeleteIcon />
-      </button>} 
+      {deleteFunction && (
+        <Button
+          intent={"secondary"}
+          className="absolute bottom-1 right-1 h-9 w-10 cursor-pointer rounded-lg border-none text-gray-600 outline-none"
+          onClick={() => 
+            deleteFunction?.(id)
+          }
+        >
+          <DeleteIcon />
+        </Button>
+      )}
     </div>
   );
 }
