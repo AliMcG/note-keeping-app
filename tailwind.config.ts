@@ -2,20 +2,26 @@ import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-  content: ["./src/**/*.tsx"],
+  content: ["./src/**/*.tsx", './node_modules/rawsome-components/dist/**/*.{js,ts,jsx,tsx}',],
   theme: {
     extend: {
       colors: {
-        primary: "hsl(159, 15%, 53%)",
-        "primary-foreground": "white",
-        secondary: "",
-        "secondary-foreground": "",
-        "primary-text": "hsl(229, 84%, 5%)",
-        "secondary-text": "",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          hover: "hsl(var(--primary-hover))",
+          active: "hsl(var(--primary-active))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          hover: "hsl(var(--secondary-hover))",
+          active: "hsl(var(--secondary-active))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
-        monts: ['var(--font-monts)'],
+        monts: ["var(--font-monts)"],
       },
     },
   },

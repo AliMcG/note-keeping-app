@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: 159, 15%, 53%;
+  --primary-hover: 159, 24%, 64%;
+  --primary-active: 159, 24%, 46%;
+  --primary-foreground: 360, 100%, 100%;
+
+  --secondary: 210, 40%, 96%;
+  --secondary-hover: 215, 20%, 65%;
+  --secondary-active: 213, 27%, 84%;
+  --secondary-foreground: 229, 84%, 5%,;
+}
