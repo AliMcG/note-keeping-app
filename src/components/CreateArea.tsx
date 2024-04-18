@@ -64,7 +64,7 @@ const TestCreateArea = () => {
       />
       <Zoom
         in={showInput}
-        className="absolute -bottom-3 right-4 z-10 h-10 w-10 cursor-pointer rounded-full border-none bg-primary text-gray-900 outline-none"
+        className="absolute -bottom-3 right-4 z-10 h-10 w-10 cursor-pointer rounded-full border-none bg-primary hover:primary-hover text-gray-900 outline-none"
       >
         <Fab onClick={handleClick}>
           <AddCircleIcon />
